@@ -1,0 +1,15 @@
+version: 2.1
+
+jobs:
+  build:
+    resource_class: small
+    docker:
+      - image: cimg/openjdk:19.0.2
+    steps:
+      - checkout
+      - run: ./gradlew build
+
+workflows:
+  build:
+    jobs:
+      - build
